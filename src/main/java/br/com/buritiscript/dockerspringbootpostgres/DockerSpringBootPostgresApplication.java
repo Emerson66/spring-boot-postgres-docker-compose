@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DockerSpringBootPostgresApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DockerSpringBootPostgresApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DockerSpringBootPostgresApplication.class, args);
+    }
 
 }
