@@ -2,10 +2,12 @@ version: '3'
 
 services:
   app:
-    image: 'docker-spring-boot-postgres:latest'
+    image: 'emersonrc/docker-spring-boot-postgres:latest'
     build:
       context: .
-    container_name: app
+    ports:
+      - "8080:8080"
+
     depends_on:
       - db
     environment:
@@ -13,9 +15,6 @@ services:
       - SPRING_DATASOURCE_USERNAME=admin
       - SPRING_DATASOURCE_PASSWORD=admin
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-
-
-
   db:
     image: 'postgres:13.1-alpine'
     restart: always
@@ -25,18 +24,9 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
 
-      POSTGRES_DB: buritiscript
+      POSTGRES_DB: buriti
     volumes:
       - buritiscript-volume:/var/lib/postgresql/data
-#  pgadmin:
-#    image: dpage/pgadmin4
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: "emersonreisdacosta@gmail.com"
-#      PGADMIN_DEFAULT_PASSWORD: "123"
-#    ports:
-#      - "81:80"
-#    depends_on:
-#      - db
 
 volumes:
   buritiscript-volume:
