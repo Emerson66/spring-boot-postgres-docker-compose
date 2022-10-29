@@ -26,3 +26,8 @@ docker build -t emersonrc/docker-spring-boot-postgres .
 ```sh
 docker-compose up -d
 ```
+
+### Obs
+```sh
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres^C
+```
